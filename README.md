@@ -1,14 +1,14 @@
 # CSV-to-KML
 
 ## Purpose of this utility
-This utility is not meant to be a general solution to creating KML files.  Geographic data could be represented in just too many ways in a CSV file. Instead, this utility is meant to generate simple KML files of lat/lon points with an arbitrary amount of associated data.
+This utility is not meant to be a general solution to creating KML files. Instead, it is a simple tool to create a bunch of point locations in Google Earth.
 
-Over the past few years, I have frequently used this utility as a quick sanity check for geographic data. It is convenient because so little formatting is needed in the input file.
+This tool has grown out of the need to occasionally look at geographic point data. There are obviously many ways to do that, but I found this script to be the fastest.
 
-This file also serves as an inroductory example of object-oriented programming in Python.
+To the student, this file will also serve as an inroductory example of object-oriented programming in Python.
 
 ## Input file formatting
-The only requirement is that the input CSV file has at least two columns: lat and long. The script is forgiving as to the spelling of these names: Lat, lat, Latitude, Lon, long, Longitude, LongITUdE, et cetera.
+The only thing absolutely required by this script is that the input CSV file has at least two columns: lat and long. The script is forgiving as to the spelling of these names: Lat, lat, Latitude, Lon, long, Longitude, LongITUdE, et cetera.
 
-As a bonus, this script will make use of the date/time functionality in Google Earth if there is a column labeled "datetime".
+As a bonus, this script will make use of the time slider in Google Earth if there is a column labeled "datetime".
 
