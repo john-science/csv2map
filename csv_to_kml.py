@@ -40,16 +40,16 @@ def main():
     kml.write_kml()
 
 def usage():
-    print '\nKML from CSV Points -- usage:\n'
-    print 'This program takes up to three flags (all optional).'
-    print '    -i sets the path to the input CSV file.'
-    print '    -o sets the path to the output KML file.'
-    print '    -p sets the path to the icon used to identify your points.\n'
-    print 'To geolocate points, the input CSV file will need columns labeled:'
-    print '    latitude or lat (case insensitive)'
-    print '    longitude, lon, or long (case insensitive)\n'
-    print 'Optionally, to locate points in time, the CSV will need a column:'
-    print '    date_time (case insensitive)\n'
+    print('\nKML from CSV Points -- usage:\n')
+    print('This program takes up to three flags (all optional).')
+    print('    -i sets the path to the input CSV file.')
+    print('    -o sets the path to the output KML file.')
+    print('    -p sets the path to the icon used to identify your points.\n')
+    print('To geolocate points, the input CSV file will need columns labeled:')
+    print('    latitude or lat (case insensitive)')
+    print('    longitude, lon, or long (case insensitive)\n')
+    print('Optionally, to locate points in time, the CSV will need a column:')
+    print('    date_time (case insensitive)\n')
 
 
 class KMLFromCSVPoints(object):
@@ -73,7 +73,8 @@ class KMLFromCSVPoints(object):
     def find_initial_position(self):
         """Find the Geometric Center of all the lat/lon points.
         Also find the Altitude needed to view all the points.
-        This will be used to initially center the Google Earth view."""
+        This will be used to initially center the Google Earth view.
+        """
         # find the lat/lon of all points
         lats = []
         lons = []
@@ -122,7 +123,8 @@ class KMLFromCSVPoints(object):
 
     def create_kml(self):
         """Create lowest-level tags: kml & Document. Add styles.
-        Then loop through the CSV rows and add placemarks."""
+        Then loop through the CSV rows and add placemarks.
+        """
         base = self.d.createElement('kml')
         base.setAttribute('xmlns','http://earth.google.com/kml/2.2')
         self.d.appendChild(base)
@@ -139,7 +141,8 @@ class KMLFromCSVPoints(object):
 
     def add_element(self, *args):
         """simple helper method to reduce the amount of code duplication
-        while adding final 1 (or 2)-deep elements that contain text"""
+        while adding final 1 (or 2)-deep elements that contain text
+        """
         if len(args) == 3:
             new_node = self.d.createElement(args[1])
             text_node = self.d.createTextNode(args[2])
@@ -256,7 +259,6 @@ class KMLFromCSVPoints(object):
         The standard KML Placemark reference can be found at:
         https://developers.google.com/kml/documentation/kmlreference#placemark
         """
-
         # get date info
         if self.csv.date_time_col == -1:
             start = datetime.now()
@@ -350,7 +352,8 @@ class CSVPoints(object):
 
     def read_csv(self):
         """Reads the CSV header into a list,
-        and all following lines into a list of lists."""
+        and all following lines into a list of lists.
+        """
         f = open(self.input_file, 'r')
         reader = csv.reader(f)
 
