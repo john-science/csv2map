@@ -5,7 +5,7 @@ This utility is not meant to be a general solution to creating KML files. Instea
 
 This tool has grown out of the need to occasionally look at geographic point data. There are obviously many ways to do that, but I found this script to be the fastest.
 
-To the student, this file will also serve as an inroductory example of object-oriented programming in Python.
+To the student, this file will also serve as an introductory example of object-oriented programming in Python.
 
 ## Input file formatting
 The only thing absolutely required by this script is that the input CSV file has at least two columns: lat and long. The script is forgiving as to the spelling of these names: Lat, lat, Latitude, Lon, long, Longitude, LongITUdE, et cetera.
