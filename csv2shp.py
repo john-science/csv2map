@@ -40,7 +40,7 @@ def main():
     if in_path == '':
         usage()
     elif out_path == '':
-        out_path = OUTPUT_DIR + in_path.split('/')[-1][:-3] + 'shp'
+        out_path = OUTPUT_DIR + in_path.split('/')[-1][:-4] + '.shp'
 
     # read input CSV
     data, fields = read_csv(in_path)
