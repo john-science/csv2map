@@ -53,7 +53,7 @@ def usage():
     print('\nPurpose:\n')
     print('This script will convert a lon/lat CSV file into a ESRI-type shapefile.')
     print('The CSV file is only required to have two lon/lat fields, but the spelling is flexible:')
-    print('"lat", "LON", "LatiTude", "Long", etcetera.')
+    print('"lat", "Lat", "lAtiTude", "LON", "Long", "LONGitude", etcetera.')
     print('Any extra collumns will be appended to the shapefile as feature attributes.\n')
     print('NOTE: This script will only work with point data.')
     print('NOTE: The example default projection is a Lambert Conformal grid in California.\n\n')
