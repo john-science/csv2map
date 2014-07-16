@@ -1,6 +1,8 @@
 # CSV 2 Map
 
-INCOMING
+This project is a collection of simple Python 2.4+ scripts designed to take lat/lon point data from a CSV and plot them in some more geographic format.
+
+Currently, the two geographic formats supported are KML and ESRI-formatted shapefiles. These utilities are described in more detail below.
 
 # CSV 2 KML
 
