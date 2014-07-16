@@ -4,7 +4,7 @@ This project is a collection of simple Python 2.4+ scripts designed to take lat/
 
 Currently, the two geographic formats supported are KML and ESRI-formatted shapefiles. These utilities are described in more detail below.
 
-# CSV 2 KML
+## CSV 2 KML
 
 ### Purpose of this utility
 This utility is not meant to be a general solution to creating KML files. Instead, it is a simple tool to create a bunch of point locations in Google Earth.
@@ -18,7 +18,7 @@ The only thing absolutely required by this script is that the input CSV file has
 
 As a bonus, this script will make use of the time slider in Google Earth if there is a column labeled "datetime".
 
-# CSV 2 SHP
+## CSV 2 SHP
 
 ### Purpose of this utility
 
