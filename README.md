@@ -22,7 +22,11 @@ As a bonus, this script will make use of the time slider in Google Earth if ther
 
 ### Purpose of this utility
 
-INCOMING
+This utility is not meant to be a general solution to creating shapefiles. Instead, it is a simple tool to place a bunch of point locations in A shapefiles.
+
+### Requirements
+
+Because ESRI shapefiles are a proprietary, binary format, and involve projection math, some non-standard Python libraries are used. In order to run this script, you will need to install OSGEO and PYPROJ. 
 
 ### Input file formatting
 
