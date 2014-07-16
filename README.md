@@ -30,4 +30,5 @@ Because ESRI shapefiles are a proprietary, binary format, and involve projection
 
 ### Input file formatting
 
-INCOMING
+The only thing absolutely required by this script is that the input CSV file has at least two columns: lat and long. The script is forgiving as to the spelling of these names: Lat, lat, Latitude, Lon, long, Longitude, LongITUdE, et cetera.
+
