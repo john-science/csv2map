@@ -20,6 +20,10 @@ The only thing absolutely required by this script is that the input CSV file has
 
 As a bonus, this script will make use of the time slider in Google Earth if there is a column labeled "datetime".
 
+### Flags and Options
+
+COMING SOON
+
 ## CSV 2 SHP
 
 ### Purpose of this utility
@@ -33,4 +37,8 @@ Because ESRI shapefiles are a proprietary, binary format, and involve projection
 ### Input file formatting
 
 The only thing absolutely required by this script is that the input CSV file has at least two columns: lat and long. The script is forgiving as to the spelling of these names: Lat, lat, Latitude, Lon, long, Longitude, LongITUdE, et cetera.
+
+### Flags and Options
+
+COMING SOON
 
