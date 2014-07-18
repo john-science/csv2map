@@ -22,7 +22,9 @@ As a bonus, this script will make use of the time slider in Google Earth if ther
 
 ### Flags and Options
 
-COMING SOON
+    -i: input CSV path (default is ./locations.csv)
+    -o: output KML path (default is /path/to/filename.csv)
+    -p: map icon path (default is a circle)
 
 ## CSV 2 SHP
 
@@ -40,5 +42,7 @@ The only thing absolutely required by this script is that the input CSV file has
 
 ### Flags and Options
 
-COMING SOON
+    -i: input CSV path (no defaults)
+    -o: output Shapefile path (default is /path/to/your_csv.shp)
+    -p: map projection (default is currently a California Lambert grid)
 
