@@ -7,7 +7,7 @@ import sys
 
 __author__ = "John Stilley"
 __license__ = "GPLv3"
-__version__ = "0.9.2"
+__version__ = "0.9.3"
 
 # CONSTANTS
 PROJECTION = '+proj=lcc +lat_1=30 +lat_2=60 +lat_0=37 +lon_0=-120.5 +units=m'
@@ -71,11 +71,11 @@ def create_shapefile(filepath, data, fields):
     All data not associated with lon/lat or x/y will be appended as an
     attribute to each point.
     """
-    spatialReference = osr.SpatialReference()
-    spatialReference.ImportFromProj4(PROJECTION)
+    spatial_ref = osr.SpatialReference()
+    spatial_ref.ImportFromProj4(PROJECTION)
     driver = ogr.GetDriverByName('ESRI Shapefile')
-    shapeData = driver.CreateDataSource(filepath)
-    layer = shapeData.CreateLayer('customs', spatialReference, ogr.wkbPoint)
+    shape_data = driver.CreateDataSource(filepath)
+    layer = shape_data.CreateLayer('customs', spatial_ref, ogr.wkbPoint)
    
     # create fields
     for i, nf in fields:
@@ -88,16 +88,16 @@ def create_shapefile(filepath, data, fields):
     # create all of the points, and give them the correct attributes
     for fid in data.keys():
         point.AddPoint(data[fid]['x'], data[fid]['y'])
-        featureIndex = fid
+        feature_index = fid
         feature = ogr.Feature(layer_defn) 
         feature.SetGeometry(point)
-        feature.SetFID(featureIndex)
+        feature.SetFID(feature_index)
         for i, f in data[fid]['fields']:
             feature.SetField(i, f)
         layer.CreateFeature(feature)
    
     # Close the shapefile
-    shapeData.Destroy()
+    shape_data.Destroy()
 
 
 def read_csv(filepath):
