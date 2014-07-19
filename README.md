@@ -1,6 +1,6 @@
 # CSV 2 Map
 
-This project is a collection of simple Python 2.x scripts designed to take lat/lon point data from a CSV and plot them in a more geographic format.
+This project is a collection of simple Python 2.7.x scripts designed to take a CSV file of lat/lon point data and plot it in a more geographic format.
 
 Currently, the two geographic formats supported are KML and ESRI-formatted shapefiles. These utilities are described in more detail below.
 
@@ -8,7 +8,7 @@ Currently, the two geographic formats supported are KML and ESRI-formatted shape
 
 ### Purpose of this utility
 
-This utility is not meant to be a general solution to creating KML files. Instead, it is a simple tool to create a bunch of point locations in Google Earth.
+This utility is not meant to be a general solution to creating KML files. Instead, it is a simple tool to create a set of point markers in Google Earth.
 
 This tool has grown out of the need to occasionally look at geographic point data. There are obviously many ways to do that, but I found this script to be the fastest.
 
@@ -30,7 +30,7 @@ As a bonus, this script will make use of the time slider in Google Earth if ther
 
 ### Purpose of this utility
 
-This utility is not meant to be a general solution to creating shapefiles. Instead, it is a simple tool to place a bunch of point locations in a shapefile.
+This utility is not meant to be a general solution to creating shapefiles. Instead, it is a simple tool to place a set of points into a shapefile.
 
 ### Requirements
 
