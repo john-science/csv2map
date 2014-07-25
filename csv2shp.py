@@ -5,9 +5,6 @@ from osgeo import osr
 from pyproj import Proj
 import sys
 
-__author__ = "John Stilley"
-__license__ = "GPLv3"
-
 # CONSTANTS
 PROJECTION = '+proj=lcc +lat_1=30 +lat_2=60 +lat_0=37 +lon_0=-120.5 +units=m'
 REPROJECT = Proj(proj=PROJECTION[6:])
@@ -57,11 +54,11 @@ def usage():
     print('NOTE: This script will only work with point data.')
     print('NOTE: The example default projection is a Lambert Conformal grid in California.\n\n')
     print('Usage:\n')
-    print('python csv2shp.py -f /path/to/input.csv')
+    print('python csv2shp.py -i /path/to/input.csv')
     print('or')
-    print('python csv2shp.py -f /path/to/input.csv -o /path/to/output.shp')
+    print('python csv2shp.py -i /path/to/input.csv -o /path/to/output.shp')
     print('or')
-    print('python csv2shp.py -f /path/to/input.csv -p "+proj=lcc +lat_1=30 +lat_2=60"\n')
+    print('python csv2shp.py -i /path/to/input.csv -p "+proj=lcc +lat_1=30 +lat_2=60"\n')
     exit()
 
 
