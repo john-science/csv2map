@@ -7,7 +7,6 @@ import sys
 
 __author__ = "John Stilley"
 __license__ = "GPLv3"
-__version__ = "0.9.3"
 
 # CONSTANTS
 PROJECTION = '+proj=lcc +lat_1=30 +lat_2=60 +lat_0=37 +lon_0=-120.5 +units=m'
@@ -40,7 +39,7 @@ def main():
     if in_path == '':
         usage()
     elif out_path == '':
-        out_path = OUTPUT_DIR + in_path.split('/')[-1][:-4] + '.shp'
+        out_path = OUTPUT_DIR + in_path.split('/')[-1][:-3] + 'shp'
 
     # read input CSV
     data, fields = read_csv(in_path)
@@ -78,9 +77,13 @@ def create_shapefile(filepath, data, fields):
     layer = shape_data.CreateLayer('customs', spatial_ref, ogr.wkbPoint)
    
     # create fields
-    for i, nf in fields:
-        new_field = ogr.FieldDefn(nf, ogr.OFTString)
-        layer.CreateField(new_field)
+    for i, nf, tp in fields:
+        if tp == float:
+            new_field = ogr.FieldDefn(nf, ogr.OFTReal)
+            layer.CreateField(new_field)
+        else:
+            new_field = ogr.FieldDefn(nf, ogr.OFTString)
+            layer.CreateField(new_field)
    
     layer_defn = layer.GetLayerDefn()
     point = ogr.Geometry(ogr.wkbPoint) 
@@ -130,11 +133,19 @@ def read_csv(filepath):
             elif key.lower() in ['lon', 'long', 'longitude']:
                 lon = float(value)
             else:
-                fields.append((field_id, value))
-                # first time through, build a header
-                if fid == 0:
-                    field_names.append((field_id, key))
-                field_id += 1
+                # TODO: This is a bit slow, but we need to separate numbers from words.
+                try:
+                    fields.append((field_id, float(value)))
+                    # first time through, build a header
+                    if fid == 0:
+                        field_names.append((field_id, key, float))
+                    field_id += 1
+                except:
+                    fields.append((field_id, value))
+                    # first time through, build a header
+                    if fid == 0:
+                        field_names.append((field_id, key, str))
+                    field_id += 1
         
         if lat == None or lon == None:
             raise KeyError('Lon/Lat not found.')
