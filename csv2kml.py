@@ -38,13 +38,14 @@ def usage():
     print('\nKML from CSV Points -- usage:\n')
     print('This program takes up to three flags (all optional).')
     print('    -i sets the path to the input CSV file.')
-    print('    -o sets the path to the output KML file (optional).')
-    print('    -p sets the path to the icon used to identify your points (optional).\n')
+    print('    -o sets the path to the output KML file.')
+    print('    -p sets the path to the icon used to identify your points.\n')
     print('To geolocate points, the input CSV file will need columns labeled:')
     print('    latitude or lat (case insensitive)')
     print('    longitude, lon, or long (case insensitive)\n')
     print('Optionally, to locate points in time, the CSV will need a column:')
     print('    date_time (case insensitive)\n')
+    exit()
 
 
 class KMLFromCSVPoints(object):
