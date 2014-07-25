@@ -5,11 +5,6 @@ import getopt
 import sys
 from xml.dom.minidom import Document
 
-__author__ = "John Stilley"
-__copyright__ = "Copyright 2013, John Stilley"
-__license__ = "GPLv3"
-__version__ = "1.0.0"
-
 
 def main():
     input_file = 'locations.csv'
