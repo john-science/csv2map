@@ -7,6 +7,7 @@ from xml.dom.minidom import Document
 
 
 def main():
+    """main function: to parse commandline"""
     input_file = 'locations.csv'
     output_file = None
     icon = 'http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png'
@@ -16,7 +17,6 @@ def main():
     except getopt.GetoptError as err:
         print(err)
         usage()
-        sys.exit()
 
     for o,a in opts:
         if o == '-i':
@@ -27,14 +27,15 @@ def main():
             icon = a
         else:
             usage()
-            sys.exit()
 
     csv_points = CSVPoints(input_file)
     kml = KMLFromCSVPoints(csv_points, output_file=output_file, icon=icon)
     kml.create_kml()
     kml.write_kml()
 
+
 def usage():
+    """simple usage statement to prompt user when issue occur"""
     print('\nKML from CSV Points -- usage:\n')
     print('This program takes up to three flags (all optional).')
     print('    -i sets the path to the input CSV file.')
@@ -45,12 +46,13 @@ def usage():
     print('    longitude, lon, or long (case insensitive)\n')
     print('Optionally, to locate points in time, the CSV will need a column:')
     print('    date_time (case insensitive)\n')
-    exit()
+    sys.exit()
 
 
 class KMLFromCSVPoints(object):
 
     def __init__(self, csv_points, output_file=None, icon=None):
+        """class initializer"""
         self.d = Document()
         self.csv = csv_points
         self.initial_position = (38.35, -99.1, 3862426)
@@ -278,7 +280,7 @@ class KMLFromCSVPoints(object):
 
         self.add_element(placemark, 'name', csv_row[0] + ' on ' + date_start)
 
-        #    fill description with HTML table of all the CSV columns
+        # fill description with HTML table of all the CSV columns
         desc = self.d.createElement('description')
         table = self.add_html_table(csv_row)
         desc.appendChild(table)
@@ -335,6 +337,7 @@ class KMLFromCSVPoints(object):
 class CSVPoints(object):
 
     def __init__(self, input_file):
+        """class initializer"""
         self.input_file = input_file
         self.header =[]
         self.rows = []
@@ -393,5 +396,3 @@ class CSVPoints(object):
 
 if __name__ == "__main__":
     main()
-
-
