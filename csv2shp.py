@@ -15,7 +15,7 @@ def main():
     # parse command line options
     try:
         opts, args = getopt.getopt(sys.argv[1:], "i:o:p:", ["-i=", "-o=", "-p="])
-    except getopt.GetoptError, err:
+    except getopt.GetoptError:
         usage()
 
     in_path = ''
