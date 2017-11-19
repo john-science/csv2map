@@ -330,7 +330,8 @@ class KMLFromCSVPoints(object):
     def write_kml(self):
         """Write out the final KML file."""
         f = open(self.output_file, 'w')
-        f.write(self.d.toxml(encoding='utf-8'))
+        #f.write(self.d.toxml(encoding='utf-8'))
+        f.write(self.d.toxml())
         f.close()
 
 
@@ -358,7 +359,11 @@ class CSVPoints(object):
 
         rows = []
         for row in reader:
-            rows.append([col.decode('utf-8') for col in row])
+            rows.append(row)
+            #rows.append([col.encode().decode('utf-8') for col in row])
+            #print(row)
+            #print(type(row[0]))
+            #exit()
         f.close()
 
         if len(rows) < 2:
